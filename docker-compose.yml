@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+    tomcat:
+        build:
+            context: ./tomcat
+        volumes_from:
+            - volumes_source
+        ports:
+           - "8080:8080"
+
+    volumes_source:
+        build: ./volumes/application
+        volumes:
+            - ./app:/usr/share/app
